@@ -28,7 +28,7 @@
     <!-- Right: Portrait -->
     <div class="hero-right">
       <div class="vimeo-wrapper">
-        <iframe src="https://player.vimeo.com/video/1181118074?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <iframe id="vimeo-hero" src="https://player.vimeo.com/video/1181118074?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&api=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
       <div class="corner-bracket"></div>
       <div class="hero-badge">
@@ -756,6 +756,43 @@
   </div>
 
   <script src="stepper.js" defer></script>
+
+  <script>
+    // Vimeo hero video fade-in: wait for play event, then reveal
+    (function () {
+      var iframe = document.getElementById('vimeo-hero');
+      if (!iframe) return;
+
+      var revealed = false;
+      function reveal() {
+        if (revealed) return;
+        revealed = true;
+        iframe.style.opacity = '1';
+      }
+
+      // Listen for Vimeo postMessage events
+      window.addEventListener('message', function (e) {
+        if (e.origin !== 'https://player.vimeo.com') return;
+        try {
+          var data = JSON.parse(e.data);
+          // 'ready' fires when player is initialized
+          if (data.event === 'ready') {
+            iframe.contentWindow.postMessage(
+              JSON.stringify({ method: 'addEventListener', value: 'play' }),
+              'https://player.vimeo.com'
+            );
+          }
+          // 'play' fires when video actually starts playing
+          if (data.event === 'play') {
+            reveal();
+          }
+        } catch (err) {}
+      });
+
+      // Fallback: show after 4 seconds regardless
+      setTimeout(reveal, 4000);
+    })();
+  </script>
 
 </body>
 </html>

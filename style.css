@@ -233,6 +233,8 @@ header.hero {
   transform: translate(-50%, -50%);
   border: none;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
 /* Multi-directional edge blend */
