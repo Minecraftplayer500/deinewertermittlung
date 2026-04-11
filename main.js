@@ -125,13 +125,19 @@ const sections = document.querySelectorAll('header.hero, section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 
 const sectionNavMap = {
-  'top':        'top',
-  'leistungen': 'leistungen',
-  'anlaesse':   'leistungen',
-  'vorteile':   'leistungen',
-  'ueber-mich': 'ueber-mich',
-  'faq':        'faq',
-  'kontakt':    'kontakt'
+  'top':          'top',
+  'leistungen':   'leistungen',
+  'anlaesse':     'leistungen',
+  'vorteile':     'leistungen',
+  'umfang':       'leistungen',
+  'ablauf':       'ablauf',
+  'prozess':      'ablauf',
+  'preise':       'ablauf',
+  'rnd':          'ablauf',
+  'unterlagen':   'unterlagen',
+  'ueber-mich':   'ueber-mich',
+  'faq':          'faq',
+  'kontakt':      'kontakt'
 };
 
 const sectionObserver = new IntersectionObserver((entries) => {
@@ -151,19 +157,53 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(s => sectionObserver.observe(s));
 
-// Scroll-Reveal
-const items = document.querySelectorAll('.reveal-item');
+// Accordion
+document.querySelectorAll('.akk-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const panel = btn.nextElementSibling;
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+    if (isOpen) {
+      btn.setAttribute('aria-expanded', 'false');
+      panel.style.maxHeight = '0';
+    } else {
+      btn.setAttribute('aria-expanded', 'true');
+      panel.style.maxHeight = panel.scrollHeight + 'px';
     }
+  });
+});
+
+// Stepper: collect address fields before submit
+document.getElementById('stepperForm')?.addEventListener('submit', () => {
+  const strasse = document.getElementById('stepperStrasse')?.value || '';
+  const plz     = document.getElementById('stepperPlz')?.value || '';
+  const ort     = document.getElementById('stepperOrt')?.value || '';
+  document.getElementById('hiddenStrasse').value = strasse;
+  document.getElementById('hiddenOrt').value = [plz, ort].filter(Boolean).join(' ');
+});
+
+// Scroll-Reveal
+// reveal-group: kinder werden automatisch gestaffelt
+document.querySelectorAll('.reveal-group').forEach(group => {
+  Array.from(group.children).forEach((child, i) => {
+    child.classList.add('reveal-item');
+    child.dataset.revealDelay = i * 0.1;
+  });
+});
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    // data-reveal-delay takes priority (manual), then data-reveal-delay set by reveal-group JS
+    const delay = el.dataset.revealDelay || 0;
+    el.style.transitionDelay = parseFloat(delay) + 's';
+    el.classList.add('visible');
+    revealObserver.unobserve(el);
   });
 }, {
   threshold: 0,
-  rootMargin: '0px 0px -80px 0px'
+  rootMargin: '0px 0px -60px 0px'
 });
 
-items.forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal-item, .reveal-right').forEach(el => revealObserver.observe(el));

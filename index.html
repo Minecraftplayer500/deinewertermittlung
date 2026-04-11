@@ -28,7 +28,13 @@
     <!-- Right: Portrait -->
     <div class="hero-right">
       <div class="vimeo-wrapper">
-        <iframe id="vimeo-hero" src="https://player.vimeo.com/video/1181118074?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&api=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <iframe id="vimeo-hero" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="display:none;"></iframe>
+        <div id="vimeoPlaceholder" class="vimeo-placeholder">
+          <button id="vimeoLoadBtn" class="vimeo-placeholder-btn" aria-label="Video laden">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+          </button>
+          <p class="vimeo-placeholder-text">Video ansehen<br><span>Cookies akzeptieren erforderlich</span></p>
+        </div>
       </div>
       <div class="corner-bracket"></div>
       <div class="hero-badge">
@@ -54,8 +60,10 @@
       <li><a href="#top">Willkommen</a></li>
       <li><a href="#leistungen">Leistungen</a></li>
       <li><a href="#ueber-mich">Über mich</a></li>
+      <li><a href="#ablauf">Ablauf</a></li>
+      <li><a href="#unterlagen">Unterlagen</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+      <li class="nav-item-kontakt"><a href="#kontakt" class="nav-cta">Kontakt</a></li>
     </ul>
   </nav>
 
@@ -63,12 +71,12 @@
   <section class="leistungen" id="leistungen">
     <div class="leistungen-inner">
 
-      <div class="leistungen-header">
+      <div class="leistungen-header reveal-item">
         <span class="section-label">Leistungen</span>
         <h2 class="section-title">Was ich für Sie tue</h2>
       </div>
 
-      <div class="leistungen-grid">
+      <div class="leistungen-grid reveal-group">
 
         <div class="leistung-card">
           <div class="leistung-icon">
@@ -93,16 +101,6 @@
         <div class="leistung-card">
           <div class="leistung-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
-            </svg>
-          </div>
-          <h3 class="leistung-title">Mietwertgutachten</h3>
-          <p class="leistung-text">Stellt den marktgerechten Mietwert Ihrer Immobilie verbindlich fest. Für Vermieter, Mieter und Kapitalanleger — bei Mieterhöhungen, Neuvermietung oder Portfoliobewertung.</p>
-        </div>
-
-        <div class="leistung-card">
-          <div class="leistung-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
             </svg>
           </div>
@@ -118,16 +116,6 @@
           </div>
           <h3 class="leistung-title">Kaufberatung</h3>
           <p class="leistung-text">Unabhängige Begleitung zur Besichtigung. Ich prüfe Zustand, versteckte Mängel und die Angemessenheit des Angebotspreises — bevor Sie eine der größten Entscheidungen treffen.</p>
-        </div>
-
-        <div class="leistung-card">
-          <div class="leistung-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-            </svg>
-          </div>
-          <h3 class="leistung-title">Energieausweis</h3>
-          <p class="leistung-text">Gesetzlich vorgeschrieben beim Verkauf und bei Neuvermietung. Ich erstelle den Energieausweis für Ihr Objekt — rechtssicher, schnell und gültig für 10 Jahre.</p>
         </div>
 
       </div>
@@ -242,7 +230,7 @@
           <div class="vorteil-num">01</div>
           <div class="vorteil-body">
             <h4 class="vorteil-title">Öffentlich bestellter und vereidigter Sachverständiger</h4>
-            <p class="vorteil-text">Als von der IHK Hannover öffentlich bestellter und vereidigter Sachverständiger bin ich zur besonders sorgfältigen, unparteiischen Begutachtung verpflichtet. Diese Qualifikation ist nicht käuflich — sie wird überprüft.</p>
+            <p class="vorteil-text">Als von der Ingenieurkammer Niedersachsen öffentlich bestellter und vereidigter Sachverständiger bin ich zur besonders sorgfältigen, unparteiischen Begutachtung verpflichtet. Diese Qualifikation ist nicht käuflich — sie wird überprüft.</p>
           </div>
         </div>
 
@@ -286,7 +274,7 @@
   <section class="ueber-mich" id="ueber-mich">
 
     <div class="ueber-left">
-      <div class="ueber-text-block">
+      <div class="ueber-text-block reveal-item">
         <span class="section-label">Über mich</span>
         <h2 class="ueber-title">Marcel Beyer</h2>
         <p class="ueber-subtitle">Architekt, Ingenieur &amp; Sachverständiger</p>
@@ -304,23 +292,424 @@
         </p>
       </div>
 
-      <div class="bescheinigungen">
-        <div class="bescheinigung reveal-item">
+      <div class="bescheinigungen reveal-group">
+        <div class="bescheinigung">
           <img src="bescheinigung1.avif" alt="Bescheinigung 1" />
         </div>
-        <div class="bescheinigung reveal-item">
+        <div class="bescheinigung">
           <img src="bescheiniging2.avif" alt="Bescheinigung 2" />
         </div>
-        <div class="bescheinigung reveal-item">
+        <div class="bescheinigung">
           <img src="bescheinigung3.avif" alt="Bescheinigung 3" />
         </div>
       </div>
     </div>
 
-    <div class="ueber-right">
+    <div class="ueber-right reveal-item">
       <img src="header.jpg" alt="Marcel Beyer" />
     </div>
 
+  </section>
+
+  <!-- OBJEKTARTEN & AUFTRAGGEBER -->
+  <section class="umfang" id="umfang">
+    <div class="umfang-inner">
+      <div class="umfang-header">
+        <span class="section-label">Leistungsumfang</span>
+        <h2 class="section-title">Welche Objekte – für wen</h2>
+      </div>
+      <div class="umfang-layout">
+
+        <div class="umfang-col">
+          <p class="umfang-col-label">Bewertete Immobilienarten</p>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Wohnen
+              </span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <ul class="akk-liste">
+                <li>Eigentumswohnung</li>
+                <li>Ein- &amp; Zweifamilienhaus</li>
+                <li>Doppelhaushälfte</li>
+                <li>Reihenhaus / Reihenendhaus</li>
+                <li>Mehrfamilienhaus</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                Gewerbe
+              </span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <ul class="akk-liste">
+                <li>Wohn- &amp; Geschäftshaus</li>
+                <li>Bürogebäude</li>
+                <li>Lager- &amp; Produktionshalle</li>
+                <li>Logistikimmobilie</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-5-8-11a8 8 0 0 1 16 0c0 6-8 11-8 11z"/></svg>
+                Sonstige
+              </span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <ul class="akk-liste">
+                <li>Landwirtschaftsflächen</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="umfang-divider"></div>
+
+        <div class="umfang-col">
+          <p class="umfang-col-label">Auftraggeber</p>
+          <p class="umfang-col-sub">Privatpersonen ebenso wie Fachleute, Behörden und Institutionen.</p>
+          <div class="zg-grid">
+            <span>Privateigentümer</span>
+            <span>Käufer &amp; Verkäufer</span>
+            <span>Rechtsanwälte &amp; Gerichte</span>
+            <span>Steuerberater</span>
+            <span>Finanzämter</span>
+            <span>Banken &amp; Kreditinstitute</span>
+            <span>Nachlasspfleger</span>
+            <span>Insolvenzverwalter</span>
+            <span>Kommunen &amp; Behörden</span>
+            <span>Kapitalanleger</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABLAUF & VERFAHREN -->
+  <section class="prozess" id="ablauf">
+    <div class="prozess-inner">
+      <div class="prozess-header">
+        <span class="section-label">Prozess &amp; Methodik</span>
+        <h2 class="section-title">Ablauf &amp; Verfahren</h2>
+      </div>
+
+      <div class="prozess-layout">
+
+        <div class="prozess-col">
+          <p class="prozess-col-label">Ablauf der Gutachtenerstellung</p>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner"><span class="akk-num">01</span>Erstberatung &amp; Auftragsklärung</span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <p class="akk-text">In einem kostenlosen Gespräch klären wir Ihren Bewertungsanlass, die Objektart und den erforderlichen Gutachtenumfang. Sie erhalten anschließend ein verbindliches Honorarangebot.</p>
+            </div>
+          </div>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner"><span class="akk-num">02</span>Unterlagenbereitstellung</span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <p class="akk-text">Sie stellen die erforderlichen Unterlagen zusammen (Grundbuchauszug, Bauzeichnungen etc.). Ich sende Ihnen eine genaue Checkliste für Ihre Objektart. Die Unterlagen können vorab per Mail oder zur Besichtigung übergeben werden.</p>
+            </div>
+          </div>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner"><span class="akk-num">03</span>Ortstermin &amp; Besichtigung</span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <p class="akk-text">Ich besichtige das Objekt persönlich, dokumentiere Zustand, Lage und wertrelevante Merkmale. Gegebenenfalls nehme ich ein Aufmaß vor Ort vor.</p>
+            </div>
+          </div>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner"><span class="akk-num">04</span>Marktanalyse &amp; Wertermittlung</span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <p class="akk-text">Auf Basis von Vergleichsdaten, Gutachterausschuss-Informationen und anerkannten Bewertungsverfahren ermittle ich den Wert nach ImmoWertV.</p>
+            </div>
+          </div>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner"><span class="akk-num">05</span>Gutachtenerstellung &amp; Übergabe</span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <p class="akk-text">Das fertige Gutachten erhalten Sie in gedruckter und digitaler Form. Bearbeitungszeit: ca. 4 Wochen. Bei Dringlichkeit ist eine schnellere Fertigstellung gegen Aufpreis möglich.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="prozess-divider"></div>
+
+        <div class="prozess-col">
+          <p class="prozess-col-label">Wertermittlungsverfahren</p>
+          <p class="prozess-col-sub">Je nach Objektart und Anlass — in der Regel eine Kombination.</p>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner">Vergleichswertverfahren</span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <p class="akk-text">Bewertung auf Basis tatsächlicher Kaufpreise vergleichbarer Objekte.</p>
+              <p class="akk-fuer">Eigentumswohnungen · Ein- &amp; Zweifamilienhäuser · Grundstücke</p>
+            </div>
+          </div>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner">Ertragswertverfahren</span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <p class="akk-text">Wert ergibt sich aus den nachhaltig erzielbaren Erträgen des Objekts.</p>
+              <p class="akk-fuer">Mehrfamilienhäuser · Wohn- &amp; Geschäftshäuser · Gewerbeimmobilien</p>
+            </div>
+          </div>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner">Sachwertverfahren</span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <p class="akk-text">Wertermittlung über Bodenwert und Herstellungskosten des Gebäudes.</p>
+              <p class="akk-fuer">Selbstgenutzte Immobilien · Spezialimmobilien · Industrie &amp; Gewerbe</p>
+            </div>
+          </div>
+
+          <p class="prozess-hinweis">Besondere dingliche Rechte (z. B. Wohnrecht, Wegerecht, Erbbaurecht) können zu erhöhtem Aufwand und Mehrkosten führen — wird vorab kommuniziert.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PREISE / BEISPIEL -->
+  <section class="preise" id="preise">
+    <div class="preise-inner">
+      <div class="preise-header reveal-item">
+        <span class="section-label">Honorar</span>
+        <h2 class="section-title">Beispielhafte Preisübersicht</h2>
+        <p class="preise-intro">Ich arbeite mit transparenten Festpreisen. Die folgende Übersicht gibt eine erste Orientierung — das genaue Honorar richtet sich nach Objektart, Komplexität und Bewertungsanlass.</p>
+      </div>
+      <div class="preise-grid reveal-group">
+
+        <div class="preis-card">
+          <div class="preis-label">Kurzgutachten</div>
+          <div class="preis-ab">ab <span class="preis-wert">XXX €</span></div>
+          <p class="preis-desc">Kompakte Markteinschätzung für Kauf oder Verkauf. Schnell und kosteneffizient.</p>
+          <a href="#" class="preis-download preis-download--placeholder">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Mustergutachten (folgt)
+          </a>
+        </div>
+
+        <div class="preis-card">
+          <div class="preis-label">Verkehrswertgutachten</div>
+          <div class="preis-ab">ab <span class="preis-wert">XXX €</span></div>
+          <p class="preis-desc">Vollständiges, gerichtsfestes Gutachten. Von Gerichten, Behörden und Finanzämtern anerkannt.</p>
+          <a href="#" class="preis-download preis-download--placeholder">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Mustergutachten (folgt)
+          </a>
+        </div>
+
+        <div class="preis-card">
+          <div class="preis-label">Restnutzungsdauer-Gutachten</div>
+          <div class="preis-ab">ab <span class="preis-wert">XXX €</span></div>
+          <p class="preis-desc">Für Vermieter: steuerliche Optimierung durch verkürzte Abschreibung. Kosten häufig sofort durch Steuerersparnis ausgeglichen.</p>
+          <a href="#" class="preis-download preis-download--placeholder">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Mustergutachten (folgt)
+          </a>
+        </div>
+
+        <div class="preis-card">
+          <div class="preis-label">Kaufberatung</div>
+          <div class="preis-ab">ab <span class="preis-wert">XXX €</span></div>
+          <p class="preis-desc">Unabhängige Begleitung zur Besichtigung mit Prüfung von Zustand und Angebotspreis.</p>
+          <a href="#" class="preis-download preis-download--placeholder">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Mustergutachten (folgt)
+          </a>
+        </div>
+
+      </div>
+      <p class="preise-hinweis">Alle Preise zzgl. gesetzlicher MwSt. Verbindliches Angebot nach Erstgespräch. Besondere Rechte oder erhöhte Komplexität können zu Anpassungen führen.</p>
+    </div>
+  </section>
+
+  <!-- RESTNUTZUNGSDAUER -->
+  <section class="rnd" id="rnd">
+    <div class="rnd-inner">
+      <div class="rnd-header">
+        <span class="section-label">Steuerliche Optimierung</span>
+        <h2 class="section-title">Restnutzungsdauer-Gutachten</h2>
+      </div>
+      <div class="rnd-grid">
+        <div class="rnd-text">
+          <p>Vermieter können die wirtschaftliche Restnutzungsdauer eines Gebäudes durch ein Sachverständigengutachten individuell nachweisen — anstatt die vom Gesetz pauschal angesetzten 50 Jahre (2 % AfA) zugrunde zu legen. Eine verkürzte Restnutzungsdauer führt direkt zu einer höheren jährlichen Abschreibung.</p>
+          <p>In vielen Fällen sind die Gutachtenkosten bereits im ersten Jahr durch die zusätzliche Steuerersparnis vollständig ausgeglichen.</p>
+          <div class="rnd-hinweise">
+            <div class="rnd-hinweis">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span>Die Anerkennung durch das Finanzamt ist eine <strong>Einzelfallentscheidung</strong> des zuständigen Bearbeiters. Als öffentlich bestellter und vereidigter Sachverständiger erstelle ich rechtssichere Gutachten, die dieser Prüfung standhalten.</span>
+            </div>
+            <div class="rnd-hinweis">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span>Die Gutachtenkosten selbst sind als Werbungskosten <strong>steuerlich absetzbar</strong>.</span>
+            </div>
+            <div class="rnd-hinweis">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span>Bearbeitungszeit ca. <strong>4 Wochen</strong>. Bei Dringlichkeit ist eine schnellere Fertigstellung gegen Aufpreis möglich.</span>
+            </div>
+          </div>
+        </div>
+        <div class="rnd-cta-box reveal-right">
+          <p class="rnd-cta-label">Mehr erfahren</p>
+          <p class="rnd-cta-text">Sprechen Sie mich an — ich berechne gerne, ob sich ein Restnutzungsdauer-Gutachten in Ihrem Fall lohnt.</p>
+          <a href="#kontakt" class="cta-button">Jetzt anfragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNTERLAGEN & QUALIFIKATION -->
+  <section class="unterlagen-qual" id="unterlagen">
+    <div class="unterlagen-qual-inner">
+      <div class="uq-layout">
+
+        <!-- Unterlagen -->
+        <div class="uq-col uq-col--unterlagen">
+          <span class="section-label">Vorbereitung</span>
+          <h2 class="section-title">Benötigte Unterlagen</h2>
+          <p class="uq-intro">Möglichst vorab per Mail — oder zur Besichtigung mitbringen.</p>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner">Standardunterlagen</span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <ul class="akk-liste">
+                <li>Grundbuchauszug (ggf. Bewilligungsurkunden zu Rechten Abt. II / Herrschvermerken)</li>
+                <li>Liegenschaftskarte</li>
+                <li>Bauzeichnungen (Ansichten, Grundrisse, Schnitte)</li>
+                <li>Aufstellung vergangener Modernisierungen</li>
+                <li>Auflistung bekannter Mängel / Schäden</li>
+                <li>Baubeschreibung</li>
+                <li>Wohn-/Nutzflächenberechnung (ggf. Aufmaß vor Ort)</li>
+                <li>Bei Vermietung: Mietvertrag + aktueller Mietzins</li>
+                <li>Bei Erbpacht: Erbpachtvertrag + aktueller Zins</li>
+                <li>Sonstige Informationen (Vorgutachten, Exposé etc.)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner">Falls vorhanden <em>(nicht zwingend)</em></span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <ul class="akk-liste">
+                <li>Baulastenauskunft</li>
+                <li>Altlastenauskunft</li>
+                <li>Denkmalschutzauskunft</li>
+                <li>Nachweis der Baugenehmigung</li>
+                <li>Bescheid über Abgegoltenheit der Erschließungsbeiträge</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="akk-item">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner">Zusätzlich bei Eigentumswohnungen</span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <ul class="akk-liste">
+                <li>Teilungserklärung inkl. Aufteilungspläne</li>
+                <li>Protokoll der letzten WEG-Versammlung</li>
+                <li>Hausgeldabrechnung</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="uq-divider"></div>
+
+        <!-- Qualifikation -->
+        <div class="uq-col uq-col--qual">
+          <span class="section-label">Qualifikation</span>
+          <h2 class="section-title">Öffentlich bestellt &amp; vereidigt</h2>
+
+          <div class="ihk-block">
+            <p class="ihk-p">Das bundesweite IHK-Sachverständigenverzeichnis (SVV) ist die erste Anlaufstelle im Web bei der Suche nach Sachverständigen in Deutschland. Es listet derzeit rund 8.000 Einträge der von Industrie- und Handelskammern, Architekten-, Ingenieur- und Landwirtschaftskammern sowie von Landesregierungen öffentlich bestellten und vereidigten Sachverständigen.</p>
+            <a href="https://svv.ihk.de/svw-suche/4931566/suche-extern/detail-extern?plz=31275&ort=Lehrte&isConcreteOrt=false&suchbegriffe=Immobilienbewertung&umkreis=5&id=3483356" target="_blank" rel="noopener" class="ihk-link">Eintrag im SVV ansehen →</a>
+          </div>
+
+          <div class="siegel-grid">
+            <div class="siegel-logo siegel-logo--stamp">
+              <img src="Logos/dig. Stempel_Beyer.webp" alt="Öffentlich bestellt und vereidigt" />
+            </div>
+            <div class="siegel-logo siegel-logo--akn">
+              <img src="Logos/08_2_Logo_AKN_Architekt_MdAKN_rgb.webp" alt="Architektenkammer Niedersachsen" />
+            </div>
+            <div class="siegel-logo siegel-logo--ing">
+              <img src="Logos/IngKNLogoTIF.webp" alt="Ingenieurkammer Niedersachsen" />
+            </div>
+          </div>
+
+          <div class="akk-item akk-item--grundlagen">
+            <button class="akk-btn" aria-expanded="false">
+              <span class="akk-btn-inner">Wertermittlungsgrundlagen</span>
+              <svg class="akk-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="akk-panel">
+              <div class="grundlagen-tags">
+                <span>BGB</span><span>ImmoWertV</span><span>BauNVO</span><span>WoFlV</span>
+                <span>SW-Richtlinie</span><span>EW-Richtlinie</span><span>VW-Richtlinie</span>
+                <span>BRW-Richtlinie</span><span>DIN 277</span><span>NHK</span><span>BKI</span>
+                <span>BelWertV</span><span>HypZert</span><span>vdpR</span><span>Mietspiegel</span>
+                <span>Gutachterausschuss</span><span>Grundstücksmarktberichte</span>
+                <span>Destatis</span><span>MBResearch</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
   </section>
 
   <!-- FAQ -->
@@ -430,6 +819,16 @@
             <input type="email" id="email" name="email" placeholder="ihre@email.de" required />
           </div>
         </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="strasse">Straße &amp; Hausnummer</label>
+            <input type="text" id="strasse" name="strasse" placeholder="z. B. Musterstraße 12" />
+          </div>
+          <div class="form-group">
+            <label for="plzort">PLZ &amp; Ort</label>
+            <input type="text" id="plzort" name="plzort" placeholder="z. B. 31275 Lehrte" />
+          </div>
+        </div>
         <div class="form-group">
           <label for="betreff">Betreff</label>
           <input type="text" id="betreff" name="betreff" placeholder="Worum geht es?" />
@@ -466,8 +865,8 @@
       <div class="impressum-content">
 
         <div class="impressum-block">
-          <h4>Angaben gemäß § 5 TMG</h4>
-          <p>Marcel Beyer<br>Am Wiesenhof 14<br>31275 Lehrte<br>Deutschland</p>
+          <h4>Angaben gemäß § 5 DDG</h4>
+          <p>Marcel Beyer<br>Beyer Immobilienbewertung &amp; Beratung<br>Am Wiesenhof 14<br>31275 Lehrte<br>Deutschland</p>
         </div>
 
         <div class="impressum-block">
@@ -477,19 +876,49 @@
         </div>
 
         <div class="impressum-block">
-          <h4>Berufsbezeichnung &amp; Berufsrecht</h4>
-          <p>Öffentlich bestellter und vereidigter Sachverständiger<br>
-          Architekt &amp; Ingenieur</p>
-          <p>Zuständige Bestellungskörperschaft:<br>
-          IHK Hannover<br>
-          Schiffgraben 49, 30175 Hannover</p>
-          <p>Es gelten die berufsrechtlichen Regelungen für öffentlich bestellte und vereidigte Sachverständige der IHK.</p>
+          <h4>Berufsbezeichnungen</h4>
+          <p>Die folgenden Berufsbezeichnungen wurden in der Bundesrepublik Deutschland / Niedersachsen verliehen:</p>
+          <ul class="impressum-list">
+            <li><strong>Architekt</strong></li>
+            <li><strong>Ingenieur (M. A.)</strong></li>
+            <li><strong>Öffentlich bestellter und vereidigter Sachverständiger für die Bewertung von bebauten und unbebauten Grundstücken</strong></li>
+          </ul>
+        </div>
+
+        <div class="impressum-block">
+          <h4>Kammermitgliedschaften</h4>
+          <p><strong>Architektenkammer Niedersachsen</strong><br>
+          Friedrichswall 5 (Laveshaus)<br>
+          30159 Hannover<br>
+          <a href="https://www.aknds.de" target="_blank" rel="noopener">www.aknds.de</a></p>
+          <p><strong>Ingenieurkammer Niedersachsen</strong><br>
+          Hohenzollernstraße 52<br>
+          30161 Hannover<br>
+          <a href="https://www.ingenieurkammer.de" target="_blank" rel="noopener">www.ingenieurkammer.de</a></p>
+        </div>
+
+        <div class="impressum-block">
+          <h4>Öffentliche Bestellung &amp; Vereidigung</h4>
+          <p>Bestellende Körperschaft:<br>
+          <strong>Ingenieurkammer Niedersachsen</strong><br>
+          Hohenzollernstraße 52, 30161 Hannover</p>
+          <p>Sachgebiet: Bewertung von bebauten und unbebauten Grundstücken</p>
+        </div>
+
+        <div class="impressum-block">
+          <h4>Berufsrechtliche Regelungen</h4>
+          <ul class="impressum-list">
+            <li>Architektengesetz Niedersachsen (ArchG Nds.)</li>
+            <li>Niedersächsisches Ingenieurgesetz (NIngG)</li>
+            <li>Sachverständigenordnung der Ingenieurkammer Niedersachsen</li>
+          </ul>
+          <p>Die berufsrechtlichen Regelungen sind über die jeweiligen Kammern einsehbar.</p>
         </div>
 
         <div class="impressum-block">
           <h4>Berufshaftpflichtversicherung</h4>
           <p>VHV Allgemeine Versicherungen AG<br>VHV-Platz 1<br>30177 Hannover</p>
-          <p>Der räumliche Geltungsbereich des Versicherungsschutzes umfasst Tätigkeiten als Gutachter und Sachverständiger.</p>
+          <p>Räumlicher Geltungsbereich: Deutschland</p>
         </div>
 
         <div class="impressum-block">
@@ -545,9 +974,9 @@
 
         <div class="impressum-block">
           <h4>2. Hosting &amp; Domain</h4>
-          <p><strong>Hosting:</strong> Diese Website wird gehostet von Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, USA (<a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">www.netlify.com/privacy</a>). Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern von Netlify gespeichert. Hierbei handelt es sich insbesondere um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten sowie sonstige Daten, die über eine Website generiert werden.</p>
-          <p><strong>Domain:</strong> Die Domain wird bereitgestellt von IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Deutschland (<a href="https://www.ionos.de/terms-gtc/datenschutzerklaerung/" target="_blank" rel="noopener">www.ionos.de/terms-gtc/datenschutzerklaerung</a>). IONOS verarbeitet dabei technisch notwendige Verbindungsdaten zur Bereitstellung des Dienstes.</p>
-          <p>Der Einsatz dieser Dienstleister erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) sowie im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots (Art. 6 Abs. 1 lit. f DSGVO).</p>
+          <p><strong>Hosting:</strong> Diese Website wird gehostet von Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, USA (<a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">www.netlify.com/privacy</a>). Beim Abruf der Website werden durch Netlify automatisch Server-Logdaten erfasst, insbesondere IP-Adresse, Browsertyp, aufgerufene Seite sowie Datum und Uhrzeit des Zugriffs. Eine Übertragung dieser Daten in die USA findet statt. Die Übermittlung erfolgt auf Grundlage der EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO); Netlify ist zudem nach dem EU-US Data Privacy Framework zertifiziert. Mit Netlify wurde ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO abgeschlossen.</p>
+          <p><strong>Domain:</strong> Die Domain wird bereitgestellt von IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Deutschland (<a href="https://www.ionos.de/terms-gtc/datenschutzerklaerung/" target="_blank" rel="noopener">www.ionos.de/terms-gtc/datenschutzerklaerung</a>). IONOS verarbeitet technisch notwendige Verbindungsdaten ausschließlich innerhalb der EU.</p>
+          <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer sicheren und effizienten Bereitstellung des Online-Angebots).</p>
         </div>
 
         <div class="impressum-block">
@@ -561,13 +990,15 @@
           <h4>4. Kontaktformular</h4>
           <p>Wenn Sie uns über das Kontaktformular eine Anfrage zukommen lassen, werden Ihre Angaben aus dem Formular — inklusive der von Ihnen dort angegebenen Kontaktdaten — zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.</p>
           <p>Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bearbeitung von Kundenanfragen).</p>
-          <p><strong>Einsatz von Formspree:</strong> Das Kontaktformular nutzt den Dienst Formspree (Formspree, Inc., 2261 Market Street #4950, San Francisco, CA 94114, USA). Die von Ihnen im Formular eingegebenen Daten (Name, E-Mail-Adresse, Nachricht) werden an Server von Formspree übertragen und von dort an unsere E-Mail-Adresse weitergeleitet. Formspree verarbeitet diese Daten gemäß seiner Datenschutzrichtlinie (<a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">formspree.io/legal/privacy-policy</a>). Die Übertragung erfolgt verschlüsselt via SSL/TLS. Die Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nicht an Dritte weitergegeben.</p>
+          <p><strong>Einsatz von Formspree:</strong> Das Kontaktformular nutzt den Dienst Formspree (Formspree, Inc., 2261 Market Street #4950, San Francisco, CA 94114, USA; <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">formspree.io/legal/privacy-policy</a>). Die von Ihnen eingegebenen Daten werden an Server von Formspree in den USA übertragen und von dort an unsere E-Mail-Adresse weitergeleitet. Die Übermittlung in die USA erfolgt auf Grundlage der EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO). Mit Formspree wurde ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO abgeschlossen. Die Übertragung erfolgt verschlüsselt via SSL/TLS. Die Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
           <p>Sie können der Verarbeitung Ihrer Daten jederzeit widersprechen. Bitte wenden Sie sich dazu an die oben genannte E-Mail-Adresse.</p>
         </div>
 
         <div class="impressum-block">
-          <h4>5. Cookies</h4>
-          <p>Diese Website verwendet keine Tracking-Cookies oder Analyse-Tools. Es werden ausschließlich technisch notwendige Daten verarbeitet, die für den Betrieb der Website erforderlich sind.</p>
+          <h4>5. Cookies &amp; Eingebettete Inhalte</h4>
+          <p>Diese Website verwendet keine eigenen Tracking-Cookies oder Analyse-Tools. Bei Zustimmung werden Inhalte von Drittanbietern geladen:</p>
+          <p><strong>Vimeo:</strong> Für das eingebettete Video wird der Dienst Vimeo (Vimeo, LLC, 330 West 34th Street, New York, NY 10001, USA) genutzt. Bei Aktivierung des Videos setzt Vimeo Cookies und überträgt Daten in die USA. Rechtsgrundlage ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie den Cookie-Speicher Ihres Browsers löschen. Datenschutzerklärung von Vimeo: <a href="https://vimeo.com/privacy" target="_blank" rel="noopener">vimeo.com/privacy</a>.</p>
+          <p>Ohne Ihre Zustimmung werden keine Drittanbieter-Cookies gesetzt.</p>
         </div>
 
         <div class="impressum-block">
@@ -634,9 +1065,23 @@
           <div class="sub-options" id="gewerbeOptions" hidden>
             <p class="sub-label">Art der Gewerbeimmobilie</p>
             <div class="option-grid">
-              <button class="option-card" data-group="gewerbetyp" data-value="buero"><span class="option-label">Büro</span></button>
-              <button class="option-card" data-group="gewerbetyp" data-value="einzelhandel"><span class="option-label">Einzelhandel</span></button>
-              <button class="option-card" data-group="gewerbetyp" data-value="industrie"><span class="option-label">Industrie / Lager</span></button>
+              <button class="option-card" data-group="gewerbetyp" data-value="Wohn- und Geschäftshaus"><span class="option-label">Wohn- &amp; Geschäftshaus</span></button>
+              <button class="option-card" data-group="gewerbetyp" data-value="Büro"><span class="option-label">Büro</span></button>
+              <button class="option-card" data-group="gewerbetyp" data-value="Lager"><span class="option-label">Lager</span></button>
+            </div>
+            <div class="sub-other">
+              <label for="gewerbesonst" class="sub-other-label">Andere Art der Immobilie</label>
+              <input type="text" id="gewerbesonst" class="sub-other-input" placeholder="z. B. Hotel, Praxis, Tankstelle …" />
+            </div>
+          </div>
+
+          <div class="sub-options" id="grundstueckOptions" hidden>
+            <p class="sub-label">Art des Grundstücks</p>
+            <div class="option-grid">
+              <button class="option-card" data-group="grundstuecktyp" data-value="Wohnbauland"><span class="option-label">Wohnbauland</span></button>
+              <button class="option-card" data-group="grundstuecktyp" data-value="Gewerbliches Bauland"><span class="option-label">Gewerbliches Bauland</span></button>
+              <button class="option-card" data-group="grundstuecktyp" data-value="Grünland"><span class="option-label">Grünland</span></button>
+              <button class="option-card" data-group="grundstuecktyp" data-value="Landwirtschaftliche Fläche"><span class="option-label">Landwirtschaftliche Fläche</span></button>
             </div>
           </div>
         </div>
@@ -646,8 +1091,18 @@
           <p class="step-eyebrow">Lage</p>
           <h3 class="step-question">Wo befindet sich die Immobilie?</h3>
           <div class="input-group">
-            <label for="stepperOrt">Ort oder Postleitzahl</label>
-            <input type="text" id="stepperOrt" name="ort" placeholder="z. B. Hannover oder 30159" autocomplete="address-level2" />
+            <label for="stepperStrasse">Straße &amp; Hausnummer</label>
+            <input type="text" id="stepperStrasse" name="strasse" placeholder="z. B. Musterstraße 12" autocomplete="street-address" />
+          </div>
+          <div class="input-row">
+            <div class="input-group">
+              <label for="stepperPlz">Postleitzahl</label>
+              <input type="text" id="stepperPlz" name="plz" placeholder="z. B. 30159" autocomplete="postal-code" inputmode="numeric" maxlength="5" />
+            </div>
+            <div class="input-group">
+              <label for="stepperOrt">Ort</label>
+              <input type="text" id="stepperOrt" name="ort" placeholder="z. B. Hannover" autocomplete="address-level2" />
+            </div>
           </div>
         </div>
 
@@ -713,6 +1168,7 @@
           <p class="step-desc">Hinterlassen Sie uns Ihre Kontaktdaten – wir melden uns schnellstmöglich mit einer fundierten Einschätzung.</p>
           <form class="stepper-form" id="stepperForm" action="https://formspree.io/f/meepnplj" method="POST">
             <input type="hidden" name="Immobilientyp" id="hiddenTyp" />
+            <input type="hidden" name="Straße" id="hiddenStrasse" />
             <input type="hidden" name="Lage" id="hiddenOrt" />
             <input type="hidden" name="Wohnfläche" id="hiddenFlaeche" />
             <input type="hidden" name="Grundstücksfläche" id="hiddenGrundstueck" />
@@ -757,40 +1213,93 @@
 
   <script src="stepper.js" defer></script>
 
-  <script>
-    // Vimeo hero video fade-in: wait for play event, then reveal
-    (function () {
-      var iframe = document.getElementById('vimeo-hero');
-      if (!iframe) return;
+  <!-- Cookie Banner -->
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie-Einstellungen">
+    <div class="cookie-banner-inner">
+      <div class="cookie-banner-text">
+        <strong>Diese Website verwendet Cookies</strong>
+        <p>Für eingebettete Videos (Vimeo) werden Drittanbieter-Cookies gesetzt. Mit „Akzeptieren" stimmen Sie zu. Mehr in unserer <button class="cookie-dsgvo-link" id="openDatenschutzFromCookie">Datenschutzerklärung</button>.</p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button id="cookieDecline" class="cookie-btn cookie-btn--decline">Ablehnen</button>
+        <button id="cookieAccept" class="cookie-btn cookie-btn--accept">Akzeptieren</button>
+      </div>
+    </div>
+  </div>
 
-      var revealed = false;
-      function reveal() {
-        if (revealed) return;
+  <script>
+    (function () {
+      var CONSENT_KEY = 'cookie_consent';
+      var VIMEO_SRC   = 'https://player.vimeo.com/video/1181118074?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&api=1';
+      var banner      = document.getElementById('cookieBanner');
+      var revealed    = false;
+
+      function revealIframe() {
+        var iframe = document.getElementById('vimeo-hero');
+        if (!iframe || revealed) return;
         revealed = true;
         iframe.style.opacity = '1';
       }
 
-      // Listen for Vimeo postMessage events
-      window.addEventListener('message', function (e) {
-        if (e.origin !== 'https://player.vimeo.com') return;
-        try {
-          var data = JSON.parse(e.data);
-          // 'ready' fires when player is initialized
-          if (data.event === 'ready') {
-            iframe.contentWindow.postMessage(
-              JSON.stringify({ method: 'addEventListener', value: 'play' }),
-              'https://player.vimeo.com'
-            );
-          }
-          // 'play' fires when video actually starts playing
-          if (data.event === 'play') {
-            reveal();
-          }
-        } catch (err) {}
-      });
+      function startVimeo() {
+        var iframe = document.getElementById('vimeo-hero');
+        if (!iframe) return;
+        iframe.src = VIMEO_SRC;
+        iframe.style.display = '';
+        var ph = document.getElementById('vimeoPlaceholder');
+        if (ph) ph.style.display = 'none';
 
-      // Fallback: show after 4 seconds regardless
-      setTimeout(reveal, 4000);
+        window.addEventListener('message', function (e) {
+          if (e.origin !== 'https://player.vimeo.com') return;
+          try {
+            var data = JSON.parse(e.data);
+            if (data.event === 'ready') {
+              iframe.contentWindow.postMessage(
+                JSON.stringify({ method: 'addEventListener', value: 'play' }),
+                'https://player.vimeo.com'
+              );
+            }
+            if (data.event === 'play') { revealIframe(); }
+          } catch (err) {}
+        });
+        setTimeout(revealIframe, 4000);
+      }
+
+      function accept() {
+        localStorage.setItem(CONSENT_KEY, 'accepted');
+        banner.classList.remove('cookie-banner--visible');
+        startVimeo();
+      }
+
+      function decline() {
+        localStorage.setItem(CONSENT_KEY, 'declined');
+        banner.classList.remove('cookie-banner--visible');
+      }
+
+      // Init
+      var consent = localStorage.getItem(CONSENT_KEY);
+      if (consent === 'accepted') {
+        startVimeo();
+      } else {
+        if (!consent) {
+          setTimeout(function () {
+            banner.classList.add('cookie-banner--visible');
+          }, 800);
+        }
+      }
+
+      document.getElementById('cookieAccept').addEventListener('click', accept);
+      document.getElementById('cookieDecline').addEventListener('click', decline);
+      document.getElementById('vimeoLoadBtn').addEventListener('click', accept);
+
+      // Datenschutz-Link im Banner
+      document.getElementById('openDatenschutzFromCookie').addEventListener('click', function () {
+        var overlay = document.getElementById('datenschutzOverlay');
+        if (overlay) {
+          overlay.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+      });
     })();
   </script>
 

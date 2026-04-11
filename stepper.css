@@ -261,6 +261,44 @@
   display: none;
 }
 
+.sub-other {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(184, 151, 106, 0.1);
+}
+
+.sub-other-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.sub-other-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(184, 151, 106, 0.2);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.9rem;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.sub-other-input::placeholder {
+  color: rgba(245, 242, 238, 0.3);
+}
+
+.sub-other-input:focus {
+  border-color: var(--gold);
+}
+
 .sub-label {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 400;

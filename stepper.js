@@ -6,6 +6,7 @@ const stepperState = {
   data: {
     typ: null,
     gewerbetyp: null,
+    grundstuecktyp: null,
     ort: '',
     flaeche: '',
     grundstueck: '',
@@ -16,16 +17,18 @@ const stepperState = {
 
 // ─── DOM Refs ────────────────────────────────────────────
 
-const stepperOverlay   = document.getElementById('stepperOverlay');
-const stepperFill      = document.getElementById('stepperFill');
-const stepperCount     = document.getElementById('stepperCount');
-const stepperNext      = document.getElementById('stepperNext');
-const stepperBack      = document.getElementById('stepperBack');
-const stepperNav       = document.getElementById('stepperNav');
-const gewerbeOptions   = document.getElementById('gewerbeOptions');
-const stepperForm      = document.getElementById('stepperForm');
-const stepperOrt       = document.getElementById('stepperOrt');
-const stepperFlaeche   = document.getElementById('stepperFlaeche');
+const stepperOverlay     = document.getElementById('stepperOverlay');
+const stepperFill        = document.getElementById('stepperFill');
+const stepperCount       = document.getElementById('stepperCount');
+const stepperNext        = document.getElementById('stepperNext');
+const stepperBack        = document.getElementById('stepperBack');
+const stepperNav         = document.getElementById('stepperNav');
+const gewerbeOptions     = document.getElementById('gewerbeOptions');
+const grundstueckOptions = document.getElementById('grundstueckOptions');
+const gewerbeSonst       = document.getElementById('gewerbesonst');
+const stepperForm        = document.getElementById('stepperForm');
+const stepperOrt         = document.getElementById('stepperOrt');
+const stepperFlaeche     = document.getElementById('stepperFlaeche');
 const stepperGrundstueck = document.getElementById('stepperGrundstueck');
 
 // Hidden form fields
@@ -132,6 +135,7 @@ function canGoNext() {
     case 1:
       if (!stepperState.data.typ) return false;
       if (stepperState.data.typ === 'gewerbe' && !stepperState.data.gewerbetyp) return false;
+      if (stepperState.data.typ === 'grundstueck' && !stepperState.data.grundstuecktyp) return false;
       return true;
     case 2:
       return true;
@@ -182,26 +186,45 @@ document.querySelectorAll('.option-card').forEach(function(card) {
     // Store value in state
     stepperState.data[group] = value;
 
-    // Handle gewerbe sub-options
+    // Handle sub-options visibility
     if (group === 'typ') {
       if (value === 'gewerbe') {
         gewerbeOptions.removeAttribute('hidden');
-      } else {
+        grundstueckOptions.setAttribute('hidden', '');
+        stepperState.data.grundstuecktyp = null;
+        document.querySelectorAll('.option-card[data-group="grundstuecktyp"]').forEach(function(c) {
+          c.classList.remove('selected');
+        });
+      } else if (value === 'grundstueck') {
+        grundstueckOptions.removeAttribute('hidden');
         gewerbeOptions.setAttribute('hidden', '');
-        // Clear gewerbetyp selection
         stepperState.data.gewerbetyp = null;
+        if (gewerbeSonst) gewerbeSonst.value = '';
         document.querySelectorAll('.option-card[data-group="gewerbetyp"]').forEach(function(c) {
           c.classList.remove('selected');
         });
+      } else {
+        gewerbeOptions.setAttribute('hidden', '');
+        grundstueckOptions.setAttribute('hidden', '');
+        stepperState.data.gewerbetyp = null;
+        stepperState.data.grundstuecktyp = null;
+        if (gewerbeSonst) gewerbeSonst.value = '';
       }
+    }
+
+    // When a gewerbetyp card is selected, clear the free text field
+    if (group === 'gewerbetyp' && gewerbeSonst) {
+      gewerbeSonst.value = '';
     }
 
     updateNextBtn();
 
     // Auto-advance logic
-    if (group === 'typ' && value !== 'gewerbe') {
+    if (group === 'typ' && value !== 'gewerbe' && value !== 'grundstueck') {
       setTimeout(function() { goToStep(2); }, 280);
     } else if (group === 'gewerbetyp') {
+      setTimeout(function() { goToStep(2); }, 280);
+    } else if (group === 'grundstuecktyp') {
       setTimeout(function() { goToStep(2); }, 280);
     } else if (group === 'anlass') {
       setTimeout(function() { goToStep(5); }, 280);
@@ -210,6 +233,24 @@ document.querySelectorAll('.option-card').forEach(function(card) {
     }
   });
 });
+
+// ─── Gewerbe Freitext ────────────────────────────────────
+
+if (gewerbeSonst) {
+  gewerbeSonst.addEventListener('input', function() {
+    var val = gewerbeSonst.value.trim();
+    if (val) {
+      // Deselect any gewerbetyp card when typing
+      document.querySelectorAll('.option-card[data-group="gewerbetyp"]').forEach(function(c) {
+        c.classList.remove('selected');
+      });
+      stepperState.data.gewerbetyp = val;
+    } else {
+      stepperState.data.gewerbetyp = null;
+    }
+    updateNextBtn();
+  });
+}
 
 // ─── Flaeche input → re-evaluate next button ─────────────
 
@@ -222,7 +263,8 @@ if (stepperFlaeche) {
 if (stepperForm) {
   stepperForm.addEventListener('submit', function(e) {
     // Populate hidden fields from state and input values
-    var typParts = [stepperState.data.typ, stepperState.data.gewerbetyp].filter(Boolean);
+    var subtyp = stepperState.data.gewerbetyp || stepperState.data.grundstuecktyp || null;
+    var typParts = [stepperState.data.typ, subtyp].filter(Boolean);
     hiddenTyp.value         = typParts.join(' – ');
     hiddenOrt.value         = stepperOrt ? stepperOrt.value : '';
     hiddenFlaeche.value     = stepperFlaeche ? stepperFlaeche.value + ' m²' : '';
