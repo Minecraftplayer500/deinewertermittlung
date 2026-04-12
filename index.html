@@ -28,13 +28,9 @@
     <!-- Right: Portrait -->
     <div class="hero-right">
       <div class="vimeo-wrapper">
-        <iframe id="vimeo-hero" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="display:none;"></iframe>
-        <div id="vimeoPlaceholder" class="vimeo-placeholder">
-          <button id="vimeoLoadBtn" class="vimeo-placeholder-btn" aria-label="Video laden">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
-          </button>
-          <p class="vimeo-placeholder-text">Video ansehen<br><span>Cookies akzeptieren erforderlich</span></p>
-        </div>
+        <video id="hero-video" autoplay muted loop playsinline>
+          <source src="Videomarcel.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="corner-bracket"></div>
       <div class="hero-badge">
@@ -1213,95 +1209,6 @@
 
   <script src="stepper.js" defer></script>
 
-  <!-- Cookie Banner -->
-  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie-Einstellungen">
-    <div class="cookie-banner-inner">
-      <div class="cookie-banner-text">
-        <strong>Diese Website verwendet Cookies</strong>
-        <p>Für eingebettete Videos (Vimeo) werden Drittanbieter-Cookies gesetzt. Mit „Akzeptieren" stimmen Sie zu. Mehr in unserer <button class="cookie-dsgvo-link" id="openDatenschutzFromCookie">Datenschutzerklärung</button>.</p>
-      </div>
-      <div class="cookie-banner-actions">
-        <button id="cookieDecline" class="cookie-btn cookie-btn--decline">Ablehnen</button>
-        <button id="cookieAccept" class="cookie-btn cookie-btn--accept">Akzeptieren</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      var CONSENT_KEY = 'cookie_consent';
-      var VIMEO_SRC   = 'https://player.vimeo.com/video/1181118074?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&api=1';
-      var banner      = document.getElementById('cookieBanner');
-      var revealed    = false;
-
-      function revealIframe() {
-        var iframe = document.getElementById('vimeo-hero');
-        if (!iframe || revealed) return;
-        revealed = true;
-        iframe.style.opacity = '1';
-      }
-
-      function startVimeo() {
-        var iframe = document.getElementById('vimeo-hero');
-        if (!iframe) return;
-        iframe.src = VIMEO_SRC;
-        iframe.style.display = '';
-        var ph = document.getElementById('vimeoPlaceholder');
-        if (ph) ph.style.display = 'none';
-
-        window.addEventListener('message', function (e) {
-          if (e.origin !== 'https://player.vimeo.com') return;
-          try {
-            var data = JSON.parse(e.data);
-            if (data.event === 'ready') {
-              iframe.contentWindow.postMessage(
-                JSON.stringify({ method: 'addEventListener', value: 'play' }),
-                'https://player.vimeo.com'
-              );
-            }
-            if (data.event === 'play') { revealIframe(); }
-          } catch (err) {}
-        });
-        setTimeout(revealIframe, 4000);
-      }
-
-      function accept() {
-        localStorage.setItem(CONSENT_KEY, 'accepted');
-        banner.classList.remove('cookie-banner--visible');
-        startVimeo();
-      }
-
-      function decline() {
-        localStorage.setItem(CONSENT_KEY, 'declined');
-        banner.classList.remove('cookie-banner--visible');
-      }
-
-      // Init
-      var consent = localStorage.getItem(CONSENT_KEY);
-      if (consent === 'accepted') {
-        startVimeo();
-      } else {
-        if (!consent) {
-          setTimeout(function () {
-            banner.classList.add('cookie-banner--visible');
-          }, 800);
-        }
-      }
-
-      document.getElementById('cookieAccept').addEventListener('click', accept);
-      document.getElementById('cookieDecline').addEventListener('click', decline);
-      document.getElementById('vimeoLoadBtn').addEventListener('click', accept);
-
-      // Datenschutz-Link im Banner
-      document.getElementById('openDatenschutzFromCookie').addEventListener('click', function () {
-        var overlay = document.getElementById('datenschutzOverlay');
-        if (overlay) {
-          overlay.classList.add('open');
-          document.body.style.overflow = 'hidden';
-        }
-      });
-    })();
-  </script>
 
 </body>
 </html>

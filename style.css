@@ -381,19 +381,13 @@ header.hero {
   }
 }
 
-.vimeo-wrapper iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 177.78vh;
-  height: 100vh;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  border: none;
+.vimeo-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 1s ease;
 }
 
 /* Multi-directional edge blend */
