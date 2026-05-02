@@ -508,11 +508,20 @@ header.hero {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 300;
   font-size: 0.68rem;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold);
   display: block;
   margin-top: 5px;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .hero-badge .badge-sub {
+    white-space: normal;
+    letter-spacing: 0.18em;
+    font-size: 0.62rem;
+  }
 }
 
 /* ─── SCROLL ARROW (mobile) ──────────────────────────── */
@@ -1901,17 +1910,17 @@ header.hero {
   }
 
   .siegel-logo--stamp img {
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
   }
 
   .siegel-logo--akn img {
-    width: 56px;
-    height: 90px;
+    width: 74px;
+    height: 120px;
   }
 
   .siegel-logo--ing img {
-    height: 55px;
+    height: 72px;
   }
 
   /* ── Footer ── */
@@ -2344,21 +2353,21 @@ header.hero {
 }
 
 .siegel-logo--stamp img {
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   object-fit: contain;
 }
 
 .siegel-logo--akn img {
-  width: 72px;
-  height: 120px;
+  width: 96px;
+  height: 160px;
   object-fit: contain;
 }
 
 .siegel-logo--ing img {
   width: 100%;
-  max-width: 260px;
-  height: 72px;
+  max-width: 340px;
+  height: 96px;
   object-fit: contain;
 }
 
@@ -2576,6 +2585,56 @@ header.hero {
 .rnd-hinweis strong {
   color: var(--white);
   font-weight: 400;
+}
+
+.rnd-unterlagen {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(184,151,106,0.18);
+}
+
+.rnd-unterlagen-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px !important;
+}
+
+.rnd-unterlagen-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rnd-unterlagen-list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.87rem;
+  color: var(--white-dim);
+  line-height: 1.6;
+}
+
+.rnd-unterlagen-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.7;
+}
+
+.rnd-unterlagen-list em {
+  color: var(--white-dim);
+  opacity: 0.7;
+  font-style: italic;
 }
 
 .rnd-cta-box {

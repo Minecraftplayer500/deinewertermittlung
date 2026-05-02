@@ -2,7 +2,7 @@
 
 const stepperState = {
   current: 1,
-  total: 5,
+  total: 6,
   data: {
     typ: null,
     gewerbetyp: null,
@@ -10,6 +10,7 @@ const stepperState = {
     ort: '',
     flaeche: '',
     grundstueck: '',
+    rechte: [],
     anlass: null,
     zeit: null
   }
@@ -36,6 +37,7 @@ const hiddenTyp        = document.getElementById('hiddenTyp');
 const hiddenOrt        = document.getElementById('hiddenOrt');
 const hiddenFlaeche    = document.getElementById('hiddenFlaeche');
 const hiddenGrundstueck = document.getElementById('hiddenGrundstueck');
+const hiddenRechte     = document.getElementById('hiddenRechte');
 const hiddenAnlass     = document.getElementById('hiddenAnlass');
 const hiddenZeit       = document.getElementById('hiddenZeit');
 
@@ -109,11 +111,11 @@ function goToStep(n) {
 function updateProgress() {
   var n = stepperState.current;
 
-  if (n <= 5) {
-    stepperFill.style.width = ((n / 5) * 100) + '%';
-    stepperCount.textContent = 'Schritt ' + n + ' von 5';
+  if (n <= 6) {
+    stepperFill.style.width = ((n / 6) * 100) + '%';
+    stepperCount.textContent = 'Schritt ' + n + ' von 6';
     stepperNav.style.display = '';
-  } else if (n === 6) {
+  } else if (n === 7) {
     stepperFill.style.width = '100%';
     stepperCount.textContent = 'Fast geschafft';
     stepperNav.style.display = 'none';
@@ -142,8 +144,11 @@ function canGoNext() {
     case 3:
       return stepperFlaeche && stepperFlaeche.value.trim() !== '';
     case 4:
-      return stepperState.data.anlass !== null;
+      // Besondere Rechte ist optional — Schritt darf jederzeit übersprungen werden
+      return true;
     case 5:
+      return stepperState.data.anlass !== null;
+    case 6:
       return stepperState.data.zeit !== null;
     default:
       return true;
@@ -152,17 +157,17 @@ function canGoNext() {
 
 // Next button
 stepperNext.addEventListener('click', function() {
-  if (stepperState.current < 5) {
+  if (stepperState.current < 6) {
     goToStep(stepperState.current + 1);
   } else {
-    goToStep(6);
+    goToStep(7);
   }
 });
 
 // Back button
 stepperBack.addEventListener('click', function() {
-  if (stepperState.current === 6) {
-    goToStep(5);
+  if (stepperState.current === 7) {
+    goToStep(6);
   } else if (stepperState.current > 1) {
     goToStep(stepperState.current - 1);
   }
@@ -174,8 +179,27 @@ document.querySelectorAll('.option-card').forEach(function(card) {
   card.addEventListener('click', function() {
     var group = card.getAttribute('data-group');
     var value = card.getAttribute('data-value');
+    var isMulti = card.getAttribute('data-multi') === 'true';
 
-    // Deselect all cards in the same group
+    if (isMulti) {
+      // Toggle this card only — multi-select
+      var isSelected = card.classList.toggle('selected');
+      var arr = stepperState.data[group];
+      if (!Array.isArray(arr)) {
+        arr = [];
+        stepperState.data[group] = arr;
+      }
+      var idx = arr.indexOf(value);
+      if (isSelected && idx === -1) {
+        arr.push(value);
+      } else if (!isSelected && idx !== -1) {
+        arr.splice(idx, 1);
+      }
+      updateNextBtn();
+      return;
+    }
+
+    // Single-select: deselect all cards in the same group
     document.querySelectorAll('.option-card[data-group="' + group + '"]').forEach(function(c) {
       c.classList.remove('selected');
     });
@@ -227,9 +251,9 @@ document.querySelectorAll('.option-card').forEach(function(card) {
     } else if (group === 'grundstuecktyp') {
       setTimeout(function() { goToStep(2); }, 280);
     } else if (group === 'anlass') {
-      setTimeout(function() { goToStep(5); }, 280);
-    } else if (group === 'zeit') {
       setTimeout(function() { goToStep(6); }, 280);
+    } else if (group === 'zeit') {
+      setTimeout(function() { goToStep(7); }, 280);
     }
   });
 });
@@ -271,6 +295,10 @@ if (stepperForm) {
     hiddenGrundstueck.value = (stepperGrundstueck && stepperGrundstueck.value)
       ? stepperGrundstueck.value + ' m²'
       : 'k.A.';
+    var rechte = stepperState.data.rechte;
+    hiddenRechte.value      = (Array.isArray(rechte) && rechte.length)
+      ? rechte.join(', ')
+      : 'Keine / nicht angegeben';
     hiddenAnlass.value      = stepperState.data.anlass || '';
     hiddenZeit.value        = stepperState.data.zeit || '';
   });
