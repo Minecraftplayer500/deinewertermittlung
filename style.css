@@ -2664,6 +2664,80 @@ header.hero {
   width: 100%;
   text-align: center;
 }
+.rnd-item {
+  margin-top: 16px;
+}
+
+.rnd-akk-btn {
+  padding: 0;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.87rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--white-dim);
+  line-height: 1.7;
+}
+
+.rnd-akk-btn .akk-btn-inner {
+  gap: 12px;
+}
+
+.rnd-akk-icon {
+  color: var(--gold);
+  opacity: 0.7;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.rnd-akk-btn:hover {
+  color: var(--white);
+}
+
+.rnd-akk-btn[aria-expanded="true"] {
+  color: var(--white);
+}
+
+.rnd-list {
+  list-style: none;
+  padding: 14px 0 4px 28px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+}
+
+.rnd-list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.86rem;
+  color: var(--white-dim);
+  line-height: 1.55;
+}
+
+.rnd-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 8px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.65;
+}
+
+.rnd-list li em {
+  font-style: italic;
+  opacity: 0.7;
+  margin-left: 2px;
+}
+
+@media (max-width: 700px) {
+  .rnd-list {
+    grid-template-columns: 1fr;
+    padding-left: 28px;
+  }
+}
 
 @media (max-width: 900px) {
   .rnd {
